@@ -15,6 +15,8 @@ onerror(app)
 // 解决跨域
 const handler = async (ctx, next) => {
   ctx.set("Access-Control-Allow-Origin", "*"); // 规定允许访问该资源的外域 URI
+  // 设置的并不是服务端允许请求的方法，而是服务器支持的所有跨域请求的方法。 
+  // 关于CORS方案 详细参见 https://github.com/hstarorg/HstarDoc/blob/master/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3/CORS%E8%AF%A6%E8%A7%A3.md
   ctx.set("Access-Control-Allow-Methods", "GET"); // 请求方式
   ctx.set("Access-Control-Max-Age", "3600"); // 设定预检请求结果的缓存时间
   ctx.set("Access-Control-Allow-Headers", "apk"); //  规定 CORS 请求时会额外发送的头信息字段
